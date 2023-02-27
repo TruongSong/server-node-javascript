@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>category</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+    <!-- natigation -->
+    <nav class="navbar navbar-dark bg-dark ">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">DMS STORE</a>
+            <div style="flex: 0.9 0 0%;">
+                <form name="form" action="#" method="POST" onsubmit="return validateform()" class="  d-flex">
+                    <input class="form-control me-2" name="search" type="search" placeholder="Search"
+                        aria-label="Search">
+
+                    <button class="btn btn-success" name="submit" type="submit">Search</button>
+                </form>
+            </div>
+            <div>
+
+                <a href="" class="navbar-brand " style="margin-right: 2.5rem;">Home</a>
+                <a href="#" class="navbar-brand" style="margin-right: 2.5rem;">Categories</a>
+                <a href="#" class="navbar-brand" style="margin-right: 2.5rem;">About Us</a>
+                <a href="#" class="navbar-brand" style="margin-right: 2.5rem;">Sign Up</a>
+                <a href="#" class="navbar-brand" style="margin-right: 2.5rem;">My Cart (0)
+                </a>
+            </div>
+
+
+        </div>
+
+    </nav>
+
+
+    <!-- menu right -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 p-5">
+                <h5 class="card-title">Danh Mục Sản Phẩm </h5>
+                <div class="p-3">
+                    <img src="../image/luffy.jpg" style="width: 30px ;" alt="luffy">
+                    <a href="onepiece.html" class="card-title" style="text-decoration: none; color : #333">Mô
+                        Hình One Piece</a>
+                </div>
+
+                <div class="p-3">
+                    <img src="../image/goku_ssj4.jpg" style="width: 30px ;" alt="goku">
+                    <a href="dragon.html" class="card-title" style="text-decoration: none; color : #333">Mô Hình
+                        Dragon Ball</a>
+                </div>
+
+                <div class="p-3">
+                    <img src="../image/naruto.png" style="width: 30px ;" alt="naruto">
+                    <a href="naruto.html" class="card-title" style="text-decoration: none; color : #333">Mô Hình
+                        Naruto</a>
+                </div>
+
+            </div>
+
+            <!--  -->
+            <div class="col-lg-9 p-5">
+
+
+                <h4 class="text-center "> Mô Hình Sản Phẩm One Piece</h4>
+
+
+                <div class="row" id="dataRow">
+                    <h6 id="h6">Đang cập nhập dữ liệu vui lòng đợi ...</h6>
+                </div>
+
+                <!-- <div class="row">
+                    
+                    <div class='col-3 p-2'>
+                        <div class='card'>
+                            <img src='../image/zoro.png' class='card-img-top' alt='...'>
+                            <div class='card-body'>
+                                <h5 class='card-title '>Mô hình Zorojuurou</h5>
+
+                            </div>
+                            <ul class='list-group list-group-flush'>
+                                <li class='list-group-item'>
+                                     Giá : <b style='color:red;' name='giathue'> 1150000
+
+                                     </b>
+                                </li>
+                            </ul>
+                            <div class='card-body'>
+                                <a href='#' class='card-link'>
+                                    <button type='button' class='btn btn-success'>See
+                                    </button></a>
+                                <button type='submit' name="add_to_cart" class='btn btn-success '>Add To Cart</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+
+
+    function renderUI(data) {
+        var row = document.createElement('div');
+        row.setAttribute("class", "row");
+        var col3p2 = document.createElement('div');
+        col3p2.setAttribute("class", "col-3 p-2");
+        var card = document.createElement('div');
+        card.setAttribute("class", "card");
+        var img = document.createElement('img');
+        img.setAttribute("src", data["hinhnen"].slice(8));
+        img.setAttribute("class", "card-img-top");
+        img.setAttribute("alt", "...");
+        var carBody1 = document.createElement("div");
+        carBody1.setAttribute("class", "card-body");
+        var h5 = document.createElement("h5");
+        h5.setAttribute("class", "card-title");
+        h5.innerText = data["ten"];
+        var ul = document.createElement("ul");
+        ul.setAttribute("class", "list-group list-group-flush");
+        var li = document.createElement("li");
+        li.setAttribute("class", "list-group-item");
+        li.innerText = "Giá : ";
+        var b = document.createElement('b');
+        b.setAttribute("style", "color:red;");
+        b.innerText = data['gia'];
+        b.setAttribute("name", "giathue");
+
+
+        var cardBody2 = document.createElement("div");
+        cardBody2.setAttribute("class", "card-body");
+        var a = document.createElement("a");
+        a.setAttribute("href", "#");
+        a.setAttribute("class", "card-link");
+        var button1 = document.createElement("button");
+        button1.setAttribute("type", "button");
+        button1.setAttribute("class", "btn btn-success");
+        button1.innerText = "See";
+        var button2 = document.createElement("button");
+        button2.setAttribute("type", "submit");
+        button2.setAttribute("class", "btn btn-success");
+        button2.innerText = "Add To Cart";
+
+
+
+        var dataRow = document.getElementById("dataRow");
+
+        dataRow.appendChild(col3p2);
+        col3p2.appendChild(card);
+        card.appendChild(img);
+        card.appendChild(carBody1);
+        carBody1.appendChild(h5);
+        card.appendChild(ul);
+        ul.appendChild(li);
+        li.appendChild(b);
+        card.appendChild(cardBody2);
+        cardBody2.appendChild(a);
+        a.appendChild(button1);
+        cardBody2.appendChild(document.createTextNode(" "));
+        cardBody2.appendChild(button2);
+
+
+        // var listGiaTien = document.getElementsByName("giathue");
+        // listGiaTien.forEach(element => {
+        //     element.innerHTML = parseInt(element.innerHTML).toLocaleString('it-IT', {
+        //         style: 'currency',
+        //         currency: 'VND'
+        //     });
+        // });
+    }
+
+
+    function renderUIs(data) {
+
+        if (data.length != 0) {
+            var h6 = document.getElementById('h6');
+            h6.innerHTML = "";
+            for (var i = 0; i < data.length; i++) {
+                // console.log(data[i]);
+                renderUI(data[i]);
+            }
+
+            var listGiaTien = document.getElementsByName("giathue");
+            listGiaTien.forEach(element => {
+                element.innerHTML = parseInt(element.innerHTML).toLocaleString('it-IT', {
+                    style: 'currency',
+                    currency: 'VND'
+                });
+            });
+        }
+
+    }
+
+
+    function fetchdata() {
+        fetch("http://127.0.0.1:3000/mohinhs/1")
+            .then(response => {
+                if (!response.ok) {
+                    throw Error("Error");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                renderUIs(data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    fetchdata();
+
+</script>
+
+</html>
